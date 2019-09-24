@@ -95,19 +95,71 @@ int main() {
         std::cin >> num;
         ivec.push_back(num);
     }
-    for(auto j = ivec.begin(); j != ivec.end(); j++) {
+    for(auto j = ivec.begin(); j != ivec.end()-1; j++) {
         std::cout << *j + *(j+1) << std::endl;
     }
-    for(auto j = ivec.begin(),auto k =ivec.end(); j != k; j++, k--) {
+    for(auto j = ivec.begin(),auto k =ivec.end()-1; j <= k; j++, k--) {
         std::cout << *j + *k << std::endl;
         
     } 
     
 return 0;
 }
-        
+```
+## 3.23
+```C++
+/*Copyright[jch]-2019/9/24-3.23
+*/
+#include<iostream>
+#include<vector>
+int main() {
+    std::vector<int> ivec;
+    int v;
+    for(int i = 0; i < 10; i++) {
+        std::cin >> v;
+        ivec.push_back(v);
+    }
+    for(auto &a: ivec) {
+        a * = 2;
+        std::cout << a << std::endl;
+    }
+    return 0;
     
-
+}
+```
+## 6.10
+```C++
+/*Copyright[jch]-2019/9/24-6.10
+*/
+#include<iostream>
+void change(int *a, int *b) {
+    int t;
+    t = *a;
+    *a = *b;
+    *b = t;
+}
+int main () {
+    int x, y;
+    std::cin >> x >> y;
+    change(&x, &y);
+    std::cout << x << " " << y << std::endl;
+    return 0;
+ }
+ ```
+ ## 6.19
+     (a)调用不合法，因为函数calc只接受一个参数的输入；
+     (b)调用合法；
+     (c)调用合法；
+     (d)调用合法；
+ ## 6.30
+     (a)传入的参数为int型，且原来值不可改变；
+     (b)返回值为double型；
+     (c)括号里的指针指向传入的double型参数，返回的也是一个double型指针，可以避免多次拷贝；
+## 7.16
+    访问说明符的作用是开始知道下一个访问说明符或者类结束；
+    pubilc说明符之后的是可以公开的代码部分；
+    private说明符之后的是编写人想要隐藏，不便公开的代码细节；
+## 7.27
 
 
     
