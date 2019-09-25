@@ -34,10 +34,10 @@ int main() {
 */
 #include<iostream>
 #include<string>
-inline const std::string & max(const std::string &a, const std::string &b) {
+const std::string & max(const std::string &a, const std::string &b) {
     return (a>b)? a:b;
 }//比较字符串大小
-inline const std::string & longer(const std::string &a, const std::string &b) {
+const std::string & longer(const std::string &a, const std::string &b) {
     return (a.size()>b.size())? a:b;
 }//比较字符串长度
 int main() {
