@@ -160,6 +160,47 @@ int main () {
     pubilc说明符之后的是可以公开的代码部分；
     private说明符之后的是编写人想要隐藏，不便公开的代码细节；
 ## 7.27
+```C++
+/*Copyright[jch]-2019/9/28-Screen类
+ */
+#ifndef screen_H
+#define screen_H
+#include<iostream>
+#include<string>
+class screen{
+public:
+    screen() = default;
+    typedef std::string::size_type pos;
+    screen(pos h, pos w, char c):
+        height(h),width(w),contents(h*w,c) {};
+    screen &move(pos r, pos c);
+    screen &set(pos r, pos c, char s);
+    screen &set(char c);
+    const screen &display(std::ostream &os) const { do_play(os); return *this;}
+    char get(pos r, pos c) const {
+    return contents[r*width+c];}    
+private:
+    pos width, height;
+    pos cursor;
+    std::string contents;
+    void do_play(std::ostream &os) const { os << contents;}
+};
+inline screen &screen::move(pos r, pos c) {
+    pos row = r * width;
+    cursor = row + c;
+    return *this;
+}
+inline screen &screen::set(pos r, pos c, char s) {
+    contents[r * width + c] = s;
+    return *this;
+}
+inline screen &screen::set(char c) {
+    contents[cursor] = c;
+    return *this;
+}
+#endif
+```
+## 7.49
 
 
     
