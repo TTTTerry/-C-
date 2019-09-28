@@ -173,6 +173,7 @@ public:
     typedef std::string::size_type pos;
     screen(pos h, pos w, char c):
         height(h),width(w),contents(h*w,c) {};
+public:        
     screen &move(pos r, pos c);
     screen &set(pos r, pos c, char s);
     screen &set(char c);
