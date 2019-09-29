@@ -178,6 +178,7 @@ public:
     screen &set(pos r, pos c, char s);
     screen &set(char c);
     const screen &display(std::ostream &os) const { do_play(os); return *this;}
+    screen &display(std::ostream &os) {do_play(os);return *this;}
     char get(pos r, pos c) const {
     return contents[r*width+c];}    
 private:
