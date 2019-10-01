@@ -203,7 +203,13 @@ inline screen &screen::set(char c) {
 #endif
 ```
 ## 7.49
-
+    (a)合法；
+    (b)不合法，salesdata和salesdata&类型不可相互转换；
+    (c)不合法，combine需要传入参数；
+## 7.58
+    rate应该被定义为staitc const型；
+    vec也不需要在类内就定义好大小。
+    
 
     
     
