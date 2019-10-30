@@ -11,7 +11,7 @@ int main() {
     std::vector<int> ivec2(ivec1);  //拷贝构造
     std::vector<int> ivec3 = ivec1;  //拷贝构造
     std::vector<int> ivec4(ivec1.begin(), ivec1.end());  //指定范围元素的拷贝
-    std::vector<int> ivec5(10,1);  //顺序容器相关的构造函数
+    std::vector<int> ivec5(10, 1);  //顺序容器相关的构造函数
     return 0;
 }
 ```
