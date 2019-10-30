@@ -24,3 +24,29 @@ int main() {
 ## 9.29
     vec.resize(100)会在容器末尾增加75个新的初始化元素，和容器类型有关；
     vec.resize(10)会丢弃多出的容器后部的15个元素；
+## 9.43
+```C++
+/*Copyright-jch-Copydate[2019/10/30]
+*/
+#include<iostream>
+#include<string>
+void function (std::string &s, std::string &oldval, std::string &newval) {
+    int size = oldval.size();
+    for (auto beg = s.begin(); beg <= (s.end() - size) + 1; beg ++) {
+        if (s.substr(beg - s.begin(), size) == oldval) {
+            beg = s.erase(beg, beg + size);
+            beg = s.insert(beg, newval.begin(), newval.end());
+            beg += size;
+        }
+    }
+}
+int main() {
+    std::string s, oldVal, newVal;
+    std::cin >> s;
+    std::cin >> oldVal;
+    std::cin >> newVal;
+    function(s, oldVal, newVal);
+    std::cout << s << std::endl;
+    return 0;
+}
+```
