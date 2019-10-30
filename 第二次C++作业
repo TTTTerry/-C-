@@ -32,11 +32,11 @@ int main() {
 #include<string>
 void function (std::string &s, std::string &oldval, std::string &newval) {
     int size = oldval.size();
-    for (auto beg = s.begin(); beg <= (s.end() - size) + 1; beg ++) {
+    for (auto beg = s.begin(); beg <= (s.end() - size); beg ++) {
         if (s.substr(beg - s.begin(), size) == oldval) {
             beg = s.erase(beg, beg + size);
             beg = s.insert(beg, newval.begin(), newval.end());
-            beg += size;
+            beg += (newval.size() - 1);
         }
     }
 }
