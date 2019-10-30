@@ -1,2 +1,16 @@
 # 第二次C++作业
-
+## 9.11
+```C++
+/*Copyright-jch-Copydate[2019/10/30]
+*/
+#include<iostream>
+int main() {
+    std::vector<int> ivec;  //默认构造函数
+    std::vector<int> ivec1{1, 2, 3};  //拷贝列表元素
+    std::vector<int> ivec2(ivec1);  //拷贝构造
+    std::vector<int> ivec3 = ivec1;  //拷贝构造
+    std::vector<int> ivec4(ivec1.begin(), ivec1.end());  //指定范围元素的拷贝
+    std::vector<int> ivec5(10,1)  //顺序容器相关的构造函数
+    return 0;
+}
+```
