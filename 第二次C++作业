@@ -127,3 +127,7 @@ int main() {
     return 0;
 }
 ```
+## 10.15
+```C++
+[sz](int &a) {return (a + sz);}
+```
