@@ -156,13 +156,11 @@ int main() {
 void elimdups(std::list<std::string> &words) {
     words.sort();
     words.unique();
-
 }
 int main() {
     std::list<std::string> sentence{"I", "am", "am", "I", "learn", "C++", "I"};
     elimdups(sentence);
-    for_each(sentence.begin(), sentence.end(), [](const std::string &s) { std::cout << s << " "; } );
+    for_each(sentence.begin(), sentence.end(), [](const std::string &s) { std::cout << s << " "; });
     return 0;
-
 }
 ```
