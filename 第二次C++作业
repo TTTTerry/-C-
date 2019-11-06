@@ -62,7 +62,7 @@ int main() {
     std::stack<char> instack;
     std::string s;
     std::cin >> s;
-    for(auto s1: s) {
+    for (auto s1: s) {
         instack.push(s1);
 	if (instack.top() == ')') {
 	    std::string s2;
@@ -104,7 +104,7 @@ int main() {
         }
 
     }
-    while(!instack.empty()) {
+    while (!instack.empty()) {
         std::cout << instack.top() << std::endl;
         instack.pop();
 
@@ -139,7 +139,7 @@ int main() {
 #include<string>
 int main() {
     std::vector<std::string> words{"learn", "C++", "every", "day"};
-    for(auto it = words.crbegin; it != words.crend; it--) {
+    for (auto it = words.crbegin(); it != words.crend(); it++) {
         std::cout << *it << " ";
     }
     return 0;
