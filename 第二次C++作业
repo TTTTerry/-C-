@@ -131,3 +131,17 @@ int main() {
 ```C++
 [sz](int &a) {return (a + sz);}
 ```
+## 10.34
+/*Copyright-jch Copydate-[2019/11/6]
+*/
+#include<iostream>
+#include<vector>
+#include<string>
+int main() {
+    std::vector<std::string> words{"learn", "C++", "every", "day"};
+    for(auto it = words.crbegin; it != words.crend; it--) {
+        std::cout << *it << " ";
+    }
+    return 0;
+}
+```
