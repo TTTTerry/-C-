@@ -211,3 +211,53 @@ int main() {
     return 0;
 }
 ```
+```C++
+/*Copyright-jch-Copydate-[2019/11/19]
+*/
+#include<unordered_map>
+#include<string>
+#include<fstream>
+#include<sstream>
+#include<iostream>
+std::unordered_map<std::string, std::string> buildmap(std::ifstream &map_file) {
+    std::unordered_map<std::string, std::string> trans_map;
+    std::string key;
+    std::string value;
+    while (map_file >> key && getline(map_file, value)) {
+        if (value.size() > 1) {
+            trans_map[key] = value.substr(1);
+        }
+
+    }
+    return trans_map;
+}
+const std::string& transform(const std::string &s, const std::unordered_map<std::string, std::string> trans_map) {
+    auto trans_s = trans_map.find(s);
+    if (trans_s == trans_map.end()) {
+        return s;
+    }
+    else {
+        return trans_s->second;
+    }
+}
+void word_transform(std::ifstream &map_file, std::ifstream &input) {
+    auto trans_map = buildmap(map_file);
+    std::string text;
+    while (getline(input, text)) {
+        std::istringstream stream(text);
+        std::string word;
+        bool firstword = true;
+        while (stream >> word) {
+            if (firstword) {
+                firstword = false;
+            }
+            else {
+                std::cout << " ";
+            }
+            std::cout << transform(word, trans_map);
+        }
+        std::cout << std::endl;
+    }
+
+}
+```
