@@ -193,3 +193,21 @@ int main() {
     (3)第三个调用inserter，创建了一个有关v的迭代器，将c中元素拷贝到v.end()这个迭代器之前，合法；
     (4)第四个调用back_inserter，创建了一个v的迭代器(可以使用push_back函数),合法;
 ## 11.38
+```C++
+/*Copyright-jch Copydate-[2019/11/19]
+ */
+#include<iostream>
+#include<unordered_map>
+#include<string>
+int main() {
+    std::unordered_map<std::string, int> word_count;
+    std::string word;
+    while (std::cin >> word) {
+        word_count[word]++;
+    }
+    for (const auto &w : word_count) {
+        std::cout << w.first << ":" << w.second << std::endl;
+    }
+    return 0;
+}
+```
