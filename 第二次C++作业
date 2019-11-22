@@ -261,3 +261,18 @@ void word_transform(std::ifstream &map_file, std::ifstream &input) {
 
 }
 ```
+## 13.12
+    析构函数调用三次(accum, item1, item2)
+## 13.18
+```C++
+class Employee {
+public:
+    Employee(const std::string name, const std::string num):Employee_name(name),Employee_number(num) {}
+    Employee(const std::string name):Employee_name(name),Employee_number(number_now + 1){}
+    ~Employee() = default
+private:
+    std::string Employee_name;
+    std::string Employee_number;
+    static number_now = 0;
+}
+```
