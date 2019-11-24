@@ -265,14 +265,30 @@ void word_transform(std::ifstream &map_file, std::ifstream &input) {
     析构函数调用三次(accum, item1, item2)
 ## 13.18
 ```C++
+/*Copyright-jch Copydate-[2019/11/22]
+ */
+#ifndef _HOME_DOJCHBEST____C___EMPLOYEE_EMPLOYEE_H_
+#define _HOME_DOJCHBEST____C___EMPLOYEE_EMPLOYEE_H_
+#include <iostream>
+#include <string>
 class Employee {
-public:
-    Employee(const std::string name, const std::string num):Employee_name(name),Employee_number(num) {}
-    Employee(const std::string name):Employee_name(name),Employee_number(number_now + 1){}
-    ~Employee() = default
-private:
+ public:
+    explicit Employee(const std::string &name);
+    ~Employee() = default;
+    static int get_number();
+
+ private:
     std::string Employee_name;
-    std::string Employee_number;
-    static number_now = 0;
+    int Employee_number;
+    static int number_now;
+};
+int Employee::number_now = 1;
+Employee::Employee(const std::string &name) {
+    Employee_name = name;
+    Employee_number = number_now++;
 }
+int Employee::get_number() {
+    return number_now;
+}
+#endif  // _HOME_DOJCHBEST____C___EMPLOYEE_EMPLOYEE_H_
 ```
