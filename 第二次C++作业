@@ -292,3 +292,8 @@ int Employee::get_number() {
 }
 #endif  // _HOME_DOJCHBEST____C___EMPLOYEE_EMPLOYEE_H_
 ```
+## 13.46
+    f()的返回值是右值，用&&；
+    vi[0]是左值，用&；
+    r1是左值，用&；
+    vi[0] * f()是右值，用&&；
