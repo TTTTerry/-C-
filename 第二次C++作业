@@ -298,3 +298,76 @@ int Employee::get_number() {
     r1是左值，用&；
     vi[0] * f()是右值，用&&；
 ## 13.49
+/*Copyright-jch Copydate-[2019/11/25]
+*/
+#ifndef STRVEC_H
+#define STRVEC_H
+#include<string>
+#include<iostream>
+#include<memory>
+#include
+class strvec {
+public:
+    strvec():elements(nullptr), first_free(nullptr), cap(nullptr) {}
+    strvec(strvec &&s) noexcept:elements(s.elements), first_free(s.first_free), cap(s.cap) 
+                               {s.elements = s.first_free = s.cap = nullptr;}
+    strvec(const strvec &);
+    strvec &operator=(const strvec&);
+    ~strvec();
+    void push_back(const std::string&);
+    size_t size() const { return first_free - elements; }
+    size_t capacity() const { return cap - elements; }
+    std::string *begin() const { return elements; }
+    std::string *end() const { return first_free; }
+private:
+    std::string *elements;
+    std::string *first_free
+    std::string *cap;
+    static std::allocator<std::string> alloc;
+    void chk_n_alloc() { if (size() == capacity()) reallocate(); }
+    std::pair<std::string*, std::string*> alloc_n_copy(const std::string *b, const std::string *c) {
+        auto data = alloc.allocate(c - b);
+        return (data, uninitialized_copy(b, c, data));
+    }
+    void free();
+    void reallocate();
+}
+void strvec::push_back(const std::string &s) {
+    chk_n_alloc();
+    alloc.construct(first_free++, s);
+}
+void strvec::free() {
+    if (elements) {
+        for (auto p = first_free; p != elements; )
+            alloc.destroy(--p);
+    }
+}
+strvec::strvec(const strvec &s) {
+    auto newdata = alloc_n_copy(s.begin(), s.end());
+    elements = newdata.first;
+    first_free = cap = newdata.second;
+}
+strvec::~strvec() {
+    free();
+}
+strvec &strvec::operator=(const strvec &rhs) {
+    auto data = alloc_n_copy(rhs.begin(), rhs.end());
+    free();
+    elements = newdata.first;
+    first_free = cap = newdata.second;
+    return *this;
+}
+void strvec::reallocate() {
+    auto newcapacity = size() ? 2 * size() : 1;
+    auto newdata = alloc.allocate(newcapacity);
+    auto dest = newdata;
+    auto elem = elements;
+    for (size_t i = 0; i != size(); i++) {
+        alloc.construct(dest++, std::move(*elem++));
+    }
+    free();
+    elements = newdata;
+    first_free = dest;
+    cap = elements + newcapacity;
+}
+```
