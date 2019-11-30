@@ -380,8 +380,8 @@ void strvec::reallocate() {
 ```C++
 /*Copyright-jch Copydate-[2019/11/30]
 */
-#ifndef sales_data_H
-#define sales_data_H
+#ifndef SALES_DATA_H
+#define SALES_DATA_H
 #include<iostream>
 #include<string>
 class sales_data {
@@ -439,4 +439,52 @@ sales_data& sales_data::operator+(const sales_data &rhs) {
     return *this;
 }
 #endif
+```
+## 14.38
+``C++
+/*Copyright-jch Copydate-[2019/11/30]
+ */
+#ifndef STR_CMP_H
+#define STR_CMP_H
+#include<string>
+class str_cmp {
+public:
+    str_cmp(size_t n):size(n) {};
+    bool operator()(const std::string &s) {
+        return s.size() == size; 
+    }
+private:
+    size_t size;
+};
+#endif
+```
+/*Copyright-jch Copydate-[2019/11/30]
+ */
+#include "str_cmp.h"
+#include<vector>
+#include<iostream>
+int main() {
+    std::string s;
+    std::vector<std::string> words;
+    std::vector<size_t> num;
+    while (std::cin >> s) {
+        words.push_back(s);
+    }
+    for (size_t i = 1; i <= 10; i++) {
+        str_cmp cmp(i);
+        int sum = 0;
+        for (auto it : words) {
+            if (cmp(it)) {
+                sum++;
+            }
+
+        }
+        std::cout << sum << std::endl;
+        num.push_back(sum);
+    }
+    for (int i = 0; i < 10; i++) {
+        std::cout << "长度为" << i + 1 << "的单词有" << num[i] << "个" << std::endl;
+    }
+    return 0;
+}
 ```
