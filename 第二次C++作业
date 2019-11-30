@@ -371,3 +371,72 @@ void strvec::reallocate() {
     cap = elements + newcapacity;
 }
 ```
+## 14.3
+    (a)使用了C++内置版本的==
+    (b)使用了string重载的==
+    (c)使用了vector重载的==
+    (d)使用了strinng重载的==
+## 14.20
+```C++
+/*Copyright-jch Copydate-[2019/11/30]
+*/
+#ifndef sales_data_H
+#define sales_data_H
+#include<iostream>
+#include<string>
+class sales_data {
+public:
+    sales_data() = default;
+    sales_data(const std::string &s):bookno(s) { }
+    sales_data(const std::string &s, unsigned n, double p):
+	       bookno(s), solds(n),revenue(p * n) { }
+    std::string isbn() const {return bookno;}
+    sales_data& combine(const sales_data &);
+    sales_data& operator+=(const sales_data &);
+    sales_data& operator+(const sales_data &);
+    double avgprice() const { 
+        return (solds)? revenue / solds : 0; 
+    }
+    friend std::istream& operator>>(std::istream &, sales_data &);
+    friend std::ostream& operator<<(std::ostream &, const sales_data &);
+private:
+    std::string bookno;
+    unsigned solds = 0;
+    double revenue = 0;
+            
+};
+inline std::istream& operator>>(std::istream &in, sales_data &s){
+    double price;
+    in >> s.bookno >> s.solds >> price;
+    if (in)
+        s.revenue = s.solds * price;
+    else
+        s = sales_data();
+    return in;
+}
+
+inline std::ostream& operator<<(std::ostream &out, const sales_data &s){
+    out << s.bookno << " " <<s.solds << " " << s.revenue << std::endl;
+    return out;
+}
+sales_data& sales_data::combine(const sales_data &rhs) {
+    solds += rhs.solds;
+    revenue += rhs.revenue;
+    return *this;
+}
+sales_data& sales_data::operator+=(const sales_data &rhs) {
+    if (bookno == rhs.bookno) {
+        solds += rhs.solds;
+        revenue += rhs.revenue;
+    }
+    else {
+        std::cout << "不是同一书名不可以进行该操作哦！" << std::endl;
+    }
+    return *this;
+}
+sales_data& sales_data::operator+(const sales_data &rhs) {
+    *this += rhs;
+    return *this;
+}
+#endif
+```
