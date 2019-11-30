@@ -468,7 +468,10 @@ int main() {
     std::vector<std::string> words;
     std::vector<size_t> num;
     while (std::cin >> s) {
-        words.push_back(s);
+        if (s[s.size() - 1] == '.' || s[s.size() - 1] == ',' || s[s.size() - 1] == '?' || s[s.size() - 1] == '!') {
+            s = s.substr(0, s.size() - 1);
+        }
+            words.push_back(s);
     }
     for (size_t i = 1; i <= 10; i++) {
         str_cmp cmp(i);
@@ -479,7 +482,6 @@ int main() {
             }
 
         }
-        std::cout << sum << std::endl;
         num.push_back(sum);
     }
     for (int i = 0; i < 10; i++) {
@@ -488,3 +490,7 @@ int main() {
     return 0;
 }
 ```
+## 14.52
+    第一个存在二义性；
+    第二个是合理的，使用的是Longdouble operator+(Longdouble&, double);
+## 15.12
