@@ -494,3 +494,49 @@ int main() {
     第一个存在二义性；
     第二个是合理的，使用的是Longdouble operator+(Longdouble&, double);
 ## 15.12
+    有必要，因为override是表面覆盖了父类的某个函数，而final是为了防止后续的其他类覆盖该函数。
+## 15.16
+```C++
+class new_quote : public Disc_quote {
+public:
+    new_quote();
+    new_quote(const std::string &book, double price, std::size_t qty, double disc) : Disc_quote(book, price, qty, disc) {}
+    double net_price(std::size_t) const override {
+        if (n > quantity) {
+	    return quantity * (1 - discount) * price + (n - quantity) * price; 
+	}
+        else {
+	    return n * price;
+	}
+    
+    }
+
+};
+```
+## 15.30
+class basket {
+public:
+    void add_item(const std::shared_ptr<Quote> &sale) {
+        items.insert(sale);
+    }
+    void add_item(const Quote& sale) {
+        items.insert(std::shared_ptr<Quote>(sale.clone()));
+    }
+    void add_item(Quote&& sale) {
+        items.insert(std::shared_ptr<Quote>(std::move(sale).clone()));
+    }
+    double total_receipt(std::ostream &os) const {
+        double sum = 0.0;
+	for (auto iter = items.cbegin(); iter != items.cend(); iter = items.upper_bound(*iter)) {
+	    sum += print_total(os, **iter, item.count(*iter));
+	}
+	os << sum << std::endl;
+	return sum;
+    }
+private:
+    static bool cmp(const std::shared_ptr<Quote> &lhs, const std::shared_ptr<Quote> &rhs) {
+        return lhs->isbn() < rhs.isbn();
+    }
+    std::multiset<std::shared_ptr<Quote>, decltype(cmp)*> items { cmp };
+};
+```
