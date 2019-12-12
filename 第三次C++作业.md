@@ -59,7 +59,7 @@ int main() {
     std::string in_path = "/home/dojchbest/桌面/1";
     std::string out_path = "/home/dojchbest/桌面/2";
     std::ifstream in(in_path);
-    std::ofstream out(out_path);
+    std::ofstream out(out_path, std::ofstream app);
     save(in, out);
     return 0;
 }
