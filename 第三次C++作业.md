@@ -80,6 +80,7 @@ std::istream &deep_read(std::ifstream &in) {
         std::string words, word;
         while (getline(in, words)) {
             std::istringstream input(words);
+            std::cout << input.str() << std::endl;
             while (input >> word) {
                 std::cout << word << std::endl;
             }
