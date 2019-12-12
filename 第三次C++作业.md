@@ -32,3 +32,35 @@ int main() {
 }
 
 ```
+## 8.7
+```C++
+/*Copyright-jch Copydate-[2019/12/12]
+*/
+#include<fstream>
+#include<iostream>
+void save(std::ifstream &in, std::ofstream &out) {
+    if (in) {
+        if (out) {
+            std::string words;
+            while (getline(in, words)) {
+                out << words << "\n";
+            }
+        }
+        else {
+            std::cerr << "Failed to open the output file !" << std::endl;
+        }
+    }
+    else {
+        std::cerr << "Failed to open the input file !" << std::endl;
+    }
+}
+/* test */
+int main() {
+    std::string in_path = "/home/dojchbest/桌面/1";
+    std::string out_path = "/home/dojchbest/桌面/2";
+    std::ifstream in(in_path);
+    std::ofstream out(out_path);
+    save(in, out);
+    return 0;
+}
+```
