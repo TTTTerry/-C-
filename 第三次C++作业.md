@@ -53,13 +53,15 @@ void save(std::ifstream &in, std::ofstream &out) {
     else {
         std::cerr << "Failed to open the input file !" << std::endl;
     }
+    in.close();
+    out.close();
 }
 /* test */
 int main() {
     std::string in_path = "/home/dojchbest/桌面/1";
     std::string out_path = "/home/dojchbest/桌面/2";
     std::ifstream in(in_path);
-    std::ofstream out(out_path, std::ofstream app);
+    std::ofstream out(out_path, std::ofstream::app);
     save(in, out);
     return 0;
 }
