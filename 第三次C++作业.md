@@ -1,7 +1,7 @@
-# 第三次C++作业
-## 8.4
+## 第三次C++作业
+### 8.4
 ```C++
-/*Copyright-jch Copydate-[2019/12/12]
+/* Copyright-jch Copydate-[2019/12/12]
 */
 #include<iostream>
 #include<fstream>
@@ -32,9 +32,9 @@ int main() {
 }
 
 ```
-## 8.7
+### 8.7
 ```C++
-/*Copyright-jch Copydate-[2019/12/12]
+/* Copyright-jch Copydate-[2019/12/12]
 */
 #include<fstream>
 #include<iostream>
@@ -63,6 +63,40 @@ int main() {
     std::ifstream in(in_path);
     std::ofstream out(out_path, std::ofstream::app);
     save(in, out);
+    return 0;
+}
+```
+### 8.9
+```C++
+/* Copyright-jch Copydate-[2019/12/12]
+*/
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<string>
+std::istream &deep_read(std::ifstream &in) {
+    auto old = in.rdstate();
+    if (in) {
+        std::string words, word;
+        while (getline(in, words)) {
+            std::istringstream input(words);
+            while (input >> word) {
+                std::cout << word << std::endl;
+            }
+        }
+        in.close();
+    }
+    else {
+        std::cerr << "Failed to open the file !" << std::endl;
+    }
+    in.clear();
+    in.setstate(old);
+    return in;
+}
+int main() {
+    std::string in_path = "/home/dojchbest/桌面/1";
+    std::ifstream in(in_path);
+    deep_read(in);
     return 0;
 }
 ```
