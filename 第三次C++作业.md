@@ -105,3 +105,26 @@ int main() {
 ### 12.1
 * b1还有4个元素
 * b2含有0个元素（被析构）
+### 12.7
+```C++
+/* Copyright-jch Copydate-[2019/12/15]
+*/
+#include<vector>
+#include<memory>
+shared_ptr<std::vector<int>> fun1() {
+    shared_ptr<std::vector<int>> v = new std::vector<int> ();
+    return v;
+}
+void fun2(shared_ptr<std::vector<int>> v) {
+    int it;
+    while (std::cin >> it) {
+        v.push_back(it);
+    }
+}
+void fun3(shared_ptr<std::vector<int>> v) {
+    for (auto i : v) {
+        std::cout << i << std::endl;
+    }
+    delete v;
+    v = nullptr;
+}
