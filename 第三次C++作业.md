@@ -137,3 +137,5 @@ int main() {
 ### 12.10
 * 正确，shared_ptr<int> (p)是对p的一个拷贝，递增p中的计数器，函数运行完之后会被销毁
 ### 12.15
+* [](connection *p) { disconnect(*p); };
+### 12.17
