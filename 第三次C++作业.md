@@ -94,6 +94,7 @@ std::istream &deep_read(std::ifstream &in) {
     in.setstate(old);
     return in;
 }
+/* test */
 int main() {
     std::string in_path = "/home/dojchbest/桌面/1";
     std::ifstream in(in_path);
@@ -101,3 +102,6 @@ int main() {
     return 0;
 }
 ```
+### 12.1
+* b1还有4个元素
+* b2含有0个元素（被析构）
