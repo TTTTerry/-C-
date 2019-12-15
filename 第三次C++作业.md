@@ -139,3 +139,9 @@ int main() {
 ### 12.15
 * [](connection *p) { disconnect(*p); };
 ### 12.17
+* 不合法，定义一个unique_ptr的时候应该将它绑定在一个new返回的指针上
+* 不合法，定义一个unique_ptr的时候应该将它绑定在一个new返回的指针上
+* 合法
+* 不合法
+* 合法
+* 不合法，get不能初始化一个unique_ptr
