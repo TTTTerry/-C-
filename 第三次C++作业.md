@@ -109,22 +109,30 @@ int main() {
 ```C++
 /* Copyright-jch Copydate-[2019/12/15]
 */
+#include<iostream>
 #include<vector>
 #include<memory>
-shared_ptr<std::vector<int>> fun1() {
-    shared_ptr<std::vector<int>> v = new std::vector<int> ();
+std::shared_ptr<std::vector<int>> fun1() {
+    std::shared_ptr<std::vector<int>> v = std::make_shared<std::vector<int>> ();
     return v;
 }
-void fun2(shared_ptr<std::vector<int>> v) {
+std::shared_ptr<std::vector<int>> fun2(std::shared_ptr<std::vector<int>> v) {
     int it;
     while (std::cin >> it) {
-        v.push_back(it);
+        v->push_back(it);
     }
+    return v;
 }
-void fun3(shared_ptr<std::vector<int>> v) {
-    for (auto i : v) {
+void fun3(std::shared_ptr<std::vector<int>> v) {
+    for (auto i : *v) {
         std::cout << i << std::endl;
     }
-    delete v;
-    v = nullptr;
 }
+/* test */
+int main() {
+    fun3(fun2(fun1()));
+    return 0;
+}
+```
+### 12.10
+
