@@ -179,6 +179,7 @@ private:
 };
 #endif  
 ```
+```C++
 /* Copyright-jch Copydate-[2019/12/16]
 */
 #ifndef "STRBLOBPTR_H"
