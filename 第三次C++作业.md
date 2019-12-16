@@ -175,6 +175,8 @@ public:
     void pop_back() {
         if (data->size() > 0) return data->pop_back();
     }
+    StrBlobPtr begin() { return StrBlobPtr(*this); }
+    StrBlobPtr end() { return StrBlobPtr(*this, data->size()); }
 private:
     std::shared_ptr<std::vector<std::string>> data;
 };
