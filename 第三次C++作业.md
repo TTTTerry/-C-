@@ -179,3 +179,36 @@ private:
 };
 #endif  
 ```
+/* Copyright-jch Copydate-[2019/12/16]
+*/
+#ifndef "STRBLOBPTR_H"
+#define "STRBLOBPTR_H"
+#include "StrBlob.h"
+class StrBlobPtr {
+public:
+    StrBlobPtr() : curr(0) { }
+    StrBlobPtr(StrBlob &a, std::size_t sz = 0) : wptr(a.data), curr(sz) { }
+    std::string& deref() const {
+        auto p = check(curr);
+        return *p[curr];
+    }
+    StrBlobPtr& incr() {
+        check(curr);
+        ++curr;
+        return *this;
+    }
+private:
+    std::shared_ptr<std::vector<std::string>> check (std::size_t sz) const {
+        auto ret = wptr.lock();
+        if (!ret) {
+            throw std::runtime_error("unbound StrBlobPtr");
+        }
+        if (sz >= ret->size()) {
+            throw std::out_of_range("out of range!");
+        }
+        return ret;
+    }
+    std::weak_ptr<std::vector<std::string>> wptr;
+    std::size_t curr;
+}
+```
