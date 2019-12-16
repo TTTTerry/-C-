@@ -149,5 +149,33 @@ int main() {
 * 因为unique_ptr对于一个对象仅有一个指针可以进行管理，release是为了方便转换一个对象的管理的所有权，而shared_ptr可以多个指针共同指向一个对象，可以通过拷贝可以直接将地址传给新的指针（计数器 + 1）
 ### 12.19
 ```C++
-/* Copyright-jch Copydate-[2019/12/16]
+ /* Copyright-jch Copydate-[2019/12/16]
 */
+#ifndef "STRBLOB_H"
+#define "STRBLOB_H"
+#include<vector>
+#include<iostream>
+#include<string>
+#include<memory>
+class StrBlob {
+public:
+    typedef std::vector<std::string>::size_type size_type;
+    StrBlob(std::vector<std::string>) : data(std::make_shared<std::vector<std::string>>()) { }
+    StrBlob(std::initializer_list<std::string> l1) : data(std::make_shared<std::vector<std::string>>(l1)) { }
+    size_type size() const { return data->size(); }
+    bool empty() const { return data->empty(); }
+    void push_back(const std::string &s) { data->push_back(s); }
+    std::string& front() {
+        if (data->size() > 0) return data->front();
+    }
+    std::string& back() {
+        if (data->size() > 0) return data->back();
+    }
+    void pop_back() {
+        if (data->size() > 0) return data->pop_back();
+    }
+private:
+    std::shared_ptr<std::vector<std::string>> data;
+};
+#endif  
+```
