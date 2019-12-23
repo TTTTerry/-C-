@@ -1,8 +1,10 @@
-## C++大作业
+# C++大作业
 
 #### 学号：18062018
 
 #### 姓名：蒋晨皓
+
+## 实验过程
 
 ### 步骤一
 
@@ -90,7 +92,7 @@ std::cout << std::endl;
 
 #### 上传代码至Github，并且提交一个[Pull request](https://github.com/vesoft-inc/nebula/pull/1492)
 
-出现的问题：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
+做准备工作时出现的问题：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
 解决方法： 生成SSH公钥，具体操作步骤如下
 
@@ -102,5 +104,6 @@ std::cout << std::endl;
 ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
 
 - 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ” 就表明认证完成！
+
 
 
