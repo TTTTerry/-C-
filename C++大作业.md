@@ -2,8 +2,8 @@
 
 ## 步骤一
 
-#### 按照[手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的提示，
-#### 通过编译源码的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
+#### 按照[快速使用手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-CN/1.overview/2.quick-start/1.get-started.md)的提示，
+#### 通过[编译源码](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
 
 出现的问题1：在构建Debug版本的过程中，使用make编译源码中途失败：
 
@@ -26,5 +26,6 @@ std::cout << "Got " << resp.get_rows()->size()
 << resp.get_latency_in_us() << "/"
 << dur.elapsedInUSec() << " us)\n";
 
-题意是: 根据resp.get_latency_in_us()和dur.elapsedInUSec()的返回值大小（返回值的单位都为：us），根据较小的那个值确定输出的单位。
+题意是: 根据resp.get_latency_in_us()和dur.elapsedInUSec()的返回值大小（返回值的单位都为：us），根据二者中较小的那个值确定输出的单位。
 ```
+我对源码进行了简单的修改，更改文件的路径是：src/console/CmdProcessor.cpp
