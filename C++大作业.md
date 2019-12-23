@@ -1,5 +1,9 @@
 # C++大作业
 
+## 学号：18062018
+
+## 姓名：蒋晨皓
+
 ## 步骤一
 
 #### 按照[快速使用手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-CN/1.overview/2.quick-start/1.get-started.md)的提示，
@@ -29,6 +33,48 @@ std::cout << "Got " << resp.get_rows()->size()
 题意是: 根据resp.get_latency_in_us()和dur.elapsedInUSec()的返回值大小（返回值的单位都为：us），根据二者中较小的那个值确定输出的单位。
 ```
 #### 对源码进行了简单的修改，更改文件的路径是：src/console/CmdProcessor.cpp，并且结合git有关知识，提了一个pull request。
+#### 源码：
+```C++
+if (resp.get_rows() && !resp.get_rows()->empty()) {
+    printResult(resp);
+    std::cout << "Got " << resp.get_rows()->size()
+              << " rows (Time spent: "
+              << resp.get_latency_in_us() << "/"
+              << dur.elapsedInUSec() << " us)\n";
+} else if (resp.get_rows()) {
+    std::cout << "Empty set (Time spent: "
+              << resp.get_latency_in_us() << "/"
+              << dur.elapsedInUSec() << " us)\n";
+} else {
+    std::cout << "Execution succeeded (Time spent: "
+              << resp.get_latency_in_us() << "/"
+              << dur.elapsedInUSec() << " us)\n";
+}
+std::cout << std::endl;
+```
+#### 更改后的代码：
+```C++
+if (resp.get_rows() && !resp.get_rows()->empty()) {
+    printResult(resp);
+    std::cout << "Got " << resp.get_rows()->size()
+              << " rows (Time spent: ";
+} else if (resp.get_rows()) {
+    std::cout << "Empty set (Time spent: ";
+} else {
+    std::cout << "Execution succeeded (Time spent: ";
+}
+if (resp.get_latency_in_us() < 1000 || dur.elapsedInUSec() < 1000) {
+    std::cout << resp.get_latency_in_us() << "/"
+              << dur.elapsedInUSec() << " us)\n";
+} else if (resp.get_latency_in_us() < 1000000 || dur.elapsedInUSec() < 1000000) {
+    std::cout << resp.get_latency_in_us() / 1000.0 << "/"
+              << dur.elapsedInUSec() / 1000.0 << " ms)\n";
+} else {
+    std::cout << resp.get_latency_in_us() / 1000000.0 << "/"
+              << dur.elapsedInUSec() / 1000000.0 << " s)\n";
+}
+std::cout << std::endl;
+```
 
 出现的问题1：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
@@ -40,4 +86,5 @@ std::cout << "Got " << resp.get_rows()->size()
          
 - 最后，将密码复制到以下界面中
 ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
-          
+
+
