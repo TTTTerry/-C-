@@ -96,11 +96,11 @@ std::cout << std::endl;
 
 解决方法： 生成SSH公钥，具体操作步骤如下
 
-- ssh-keygen -t rsa -C "XXXXX@XXX.com" (Github注册邮箱) 以生成一段密码；
+- ssh-keygen -t rsa -C "XXXXX@XXX.com" (Github注册邮箱) 以生成一段密钥；
 
 - cat~/.ssh/id_rsa.pub 来获取生成的密码；
          
-- 将密码复制到以下界面中
+- 将密码复制到以下界面中；
 ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
 
 - 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ” 就表明认证完成！
