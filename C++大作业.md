@@ -92,7 +92,7 @@ std::cout << std::endl;
 
 出现的问题1：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
-解决方法： 生成ssh公钥，具体操作步骤如下
+解决方法： 生成SSH公钥，具体操作步骤如下
 
 - ssh-keygen -t rsa -C "XXXXX@XXX.com" (Github注册邮箱) 以生成一段密码；
 
