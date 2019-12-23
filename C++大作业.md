@@ -96,14 +96,16 @@ std::cout << std::endl;
 
 解决方法： 生成SSH公钥，具体操作步骤如下
 
-- ssh-keygen -t rsa -C "XXXXX@XXX.com" (Github注册邮箱) 以生成一段密钥；
+- ssh-keygen -t rsa -C "XXXXX@XXX.com" (Github注册邮箱) // 生成一段密钥；
 
-- cat~/.ssh/id_rsa.pub 来获取生成的密码；
+- cat~/.ssh/id_rsa.pub // 来获取生成的密码；
          
 - 将密码复制到以下界面中；
 ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
 
-- 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ” 就表明认证完成！
+- 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ”  // 表明认证完成！
+
+- git remote set-url git@github.com:doJCHbest/nebula.git // 将远程URL从SSH更改为HTTPS
 
 准备工作部分完成后，终于可以开始下一阶段——提交一个Pull request
 
