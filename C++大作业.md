@@ -1,10 +1,10 @@
-# C++大作业
+## C++大作业
 
-### 学号：18062018
+#### 学号：18062018
 
-### 姓名：蒋晨皓
+#### 姓名：蒋晨皓
 
-## 步骤一
+### 步骤一
 
 #### 按照[快速使用手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-CN/1.overview/2.quick-start/1.get-started.md)的提示，
 #### 通过[编译源码](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
@@ -19,7 +19,7 @@
 
 ![](https://user-images.githubusercontent.com/54877997/71334158-e6b24480-2577-11ea-9cec-adc6439df5b2.jpg)
 
-## 步骤二
+### 步骤二
 
 #### 根据老师在群里的问题：
 ```
@@ -86,11 +86,11 @@ std::cout << std::endl;
 
 解决方法：make install 忘记加sudo （ps：对操作系统方面的知识了解还是不够😂）
 
-## 步骤三
+### 步骤三
 
 #### 上传代码至Github，并且提交一个[Pull request](https://github.com/vesoft-inc/nebula/pull/1492)
 
-出现的问题1：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
+出现的问题：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
 解决方法： 生成SSH公钥，具体操作步骤如下
 
@@ -102,4 +102,5 @@ std::cout << std::endl;
 ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
 
 - 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ” 就表明认证完成！
+
 
