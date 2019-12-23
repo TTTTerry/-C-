@@ -121,11 +121,12 @@ git checkout change // 切换到change分支
 ```
 #### Step 3 : 添加说明
 ```
+git add src/console/CmdProcessor.cpp // add修改文件
 git commit -m "time output change" // 添加“时间输出的改变”的说明
 ```
 #### Step 4 : 上传代码
 ```
-git push origin change //  上传新建的change分支
+git push --set-upstream origin change //  关联上游分支并且上传新建的change分支
 ```
 #### Step 5 : 在老师的项目下选择自己修改过的分支，提交Pull request
 
