@@ -112,7 +112,7 @@ std::cout << std::endl;
 ```
 git remote -v // 查看现有的从属关系
 git remote rm origin // 清除当前远程origin
-git remote add origin https://github.com/doJCHbest/nebula.git // 新建仓库名
+git remote add origin https://github.com/doJCHbest/nebula.git // 使文件可以被git管理
 ```
 #### Step 2 : 创建自己的分支
 ```
