@@ -119,16 +119,17 @@ git remote add origin https://github.com/doJCHbest/nebula.git // 新建仓库名
 #### Step 2 : 创建自己的分支
 
 ```
-git branch change
+git branch change // 创建一个名为change的分支
+git checkout change // 切换到change分支
 ```
 #### Step 3 : 添加说明
 
 ```
-git commit -m "time output change"
+git commit -m "time output change" // 添加“时间输出的改变”的说明
 ```
 #### Step 4 : 上传代码
 
 ```
-git push origin change
+git push origin change //  上传新建的change分支
 ```
 #### Step 5 : 在老师的项目下选择自己修改过的分支，提交Pull request
