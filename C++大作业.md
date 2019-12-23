@@ -9,13 +9,14 @@
 #### 按照[快速使用手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-CN/1.overview/2.quick-start/1.get-started.md)的提示，
 #### 通过[编译源码](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
 
-出现的问题1：在虚拟机ubuntu18上构建Debug版本的过程中，使用make编译源码中途失败
+出现的问题：在虚拟机ubuntu18上构建Debug版本的过程中，使用make编译源码中途失败
 
 ![](https://user-images.githubusercontent.com/54877997/71333815-8a9af080-2576-11ea-9483-1ea4f70b469d.jpg)
 
 解决方法：出现该问题的原因是是虚拟机内存分配不够，在重新分配内存后，编译成功。
 
 #### 最后构建成功，结果如图所示：
+
 ![](https://user-images.githubusercontent.com/54877997/71334158-e6b24480-2577-11ea-9cec-adc6439df5b2.jpg)
 
 ## 步骤二
@@ -32,7 +33,8 @@ std::cout << "Got " << resp.get_rows()->size()
 
 题意是: 根据resp.get_latency_in_us()和dur.elapsedInUSec()的返回值大小（返回值的单位都为：us），根据二者中较小的那个值确定输出的单位。
 ```
-#### 对源码进行了简单的修改，更改文件的路径是：src/console/CmdProcessor.cpp，并且结合git有关知识，提了一个pull request。
+#### 对源码进行了简单的修改，更改文件的路径是：src/console/CmdProcessor.cpp
+
 #### 源码：
 ```C++
 if (resp.get_rows() && !resp.get_rows()->empty()) {
@@ -52,7 +54,9 @@ if (resp.get_rows() && !resp.get_rows()->empty()) {
 }
 std::cout << std::endl;
 ```
+
 #### 更改后的代码：
+
 ```C++
 if (resp.get_rows() && !resp.get_rows()->empty()) {
     printResult(resp);
@@ -75,6 +79,16 @@ if (resp.get_latency_in_us() < 1000 || dur.elapsedInUSec() < 1000) {
 }
 std::cout << std::endl;
 ```
+
+重新编译过程中出现的问题：
+
+![](https://user-images.githubusercontent.com/54877997/71347816-1b3cf500-25a6-11ea-93d2-099fc1a80637.jpg)
+
+解决方法：make install 忘记加sudo （ps：对操作系统方面的知识了解还是不够😂）
+
+## 步骤三
+
+#### 上传代码至Github，并且提交一个pull request
 
 出现的问题1：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
