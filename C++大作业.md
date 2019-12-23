@@ -88,7 +88,7 @@ std::cout << std::endl;
 
 ## 步骤三
 
-#### 上传代码至Github，并且提交一个pull request
+#### 上传代码至Github，并且提交一个[Pull request](https://github.com/vesoft-inc/nebula/pull/1492)
 
 出现的问题1：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
