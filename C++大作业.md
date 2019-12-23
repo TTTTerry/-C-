@@ -39,5 +39,5 @@ std::cout << "Got " << resp.get_rows()->size()
 - cat~/.ssh/id_rsa.pub 来获取生成的密码；
          
 - 最后，将密码复制到以下界面中
-  ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
+![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
           
