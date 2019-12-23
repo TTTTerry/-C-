@@ -92,7 +92,7 @@ std::cout << std::endl;
 
 #### 上传代码至Github，并且提交一个[Pull request](https://github.com/vesoft-inc/nebula/pull/1492)
 
-做准备工作时出现的问题：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
+准备工作时出现的问题：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
 
 解决方法： 生成SSH公钥，具体操作步骤如下
 
@@ -105,5 +105,12 @@ std::cout << std::endl;
 
 - 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ” 就表明认证完成！
 
+准备工作部分完成后，终于可以开始下一阶段——提交一个Pull request
 
+#### step 1 : 更改现有的分支（因为 git clone 的是老师项目的网址，所以在fork之后需要将分支切换到自己的网址下） 
+```
+git remote -v // 查看现有的从属关系
+git remote rm origin // 清除当前远程origin
+git remote add origin https://github.com/doJCHbest/nebula.git 
+git 
 
