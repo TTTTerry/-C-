@@ -2,8 +2,8 @@
 
 ## 步骤一
 
-### 按照[手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的提示，
-### 通过编译源码的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
+#### 按照[手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的提示，
+#### 通过编译源码的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
 
 出现的问题1：在构建Debug版本的过程中，使用make编译源码中途失败：
 
@@ -11,7 +11,7 @@
 
 解决方法：出现该问题的原因是是虚拟机内存分配不够，在重新分配内存后，编译成功。
 
-### 最后构建成功，结果如图所示：
+#### 最后构建成功，结果如图所示：
 ![](https://user-images.githubusercontent.com/54877997/71334158-e6b24480-2577-11ea-9cec-adc6439df5b2.jpg)
 
 ## 步骤二
