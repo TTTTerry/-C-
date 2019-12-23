@@ -1,1 +1,5 @@
-# github-lecture
+# C++大作业
+## 步骤一
+---
+首先按照[手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)
+的提示，通过编译源码的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
