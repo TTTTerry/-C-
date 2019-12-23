@@ -5,7 +5,7 @@
 #### 按照[快速使用手册](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-CN/1.overview/2.quick-start/1.get-started.md)的提示，
 #### 通过[编译源码](https://github.com/vesoft-inc/nebula/blob/master/docs/manual-EN/3.build-develop-and-administration/1.build/1.build-source-code.md)的方式安装[Nebula Graph](https://github.com/vesoft-inc/nebula)
 
-出现的问题1：在构建Debug版本的过程中，使用make编译源码中途失败：
+出现的问题1：在虚拟机ubuntu18上构建Debug版本的过程中，使用make编译源码中途失败
 
 ![](https://user-images.githubusercontent.com/54877997/71333815-8a9af080-2576-11ea-9483-1ea4f70b469d.jpg)
 
@@ -28,4 +28,16 @@ std::cout << "Got " << resp.get_rows()->size()
 
 题意是: 根据resp.get_latency_in_us()和dur.elapsedInUSec()的返回值大小（返回值的单位都为：us），根据二者中较小的那个值确定输出的单位。
 ```
-我对源码进行了简单的修改，更改文件的路径是：src/console/CmdProcessor.cpp
+#### 对源码进行了简单的修改，更改文件的路径是：src/console/CmdProcessor.cpp，并且结合git有关知识，提了一个pull request。
+
+出现的问题1：使用git过程中频繁要求输入账号密码，使得试错学习的过程的时间耗费更多。
+
+解决方法： 生成ssh公钥，具体操作步骤如下
+
+- ssh-keygen -t rsa -C "XXXXX@XXX.com" (Github注册邮箱) 以生成一段密码；
+
+- cat~/.ssh/id_rsa.pub 来获取生成的密码；
+         
+- 最后，将密码复制到以下界面中
+  ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
+          
