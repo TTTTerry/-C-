@@ -109,10 +109,26 @@ std::cout << std::endl;
 
 准备工作部分完成后，终于可以开始下一阶段——提交一个Pull request
 
-#### step 1 : 更改现有的分支（因为 git clone 的是老师项目的网址，所以在fork之后需要将分支切换到自己的网址下） 
+#### Step 1 : 更改现有的分支（因为 git clone 的是老师项目的网址，所以在fork之后需要将分支切换到自己的网址下） 
+
 ```
 git remote -v // 查看现有的从属关系
 git remote rm origin // 清除当前远程origin
-git remote add origin https://github.com/doJCHbest/nebula.git 
-git 
+git remote add origin https://github.com/doJCHbest/nebula.git // 新建仓库名
+```
+#### Step 2 : 创建自己的分支
 
+```
+git branch change
+```
+#### Step 3 : 添加说明
+
+```
+git commit -m "time output change"
+```
+#### Step 4 : 上传代码
+
+```
+git push origin change
+```
+#### Step 5 : 在老师的项目下选择自己修改过的分支，提交Pull request
