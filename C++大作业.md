@@ -26,5 +26,5 @@ std::cout << "Got " << resp.get_rows()->size()
 << resp.get_latency_in_us() << "/"
 << dur.elapsedInUSec() << " us)\n";
 
+题意是: 根据resp.get_latency_in_us()和dur.elapsedInUSec()的返回值大小，根据较小的那个值确定输出的单位（原来单位都位：us）
 ```
-
