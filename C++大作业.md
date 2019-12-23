@@ -87,5 +87,5 @@ std::cout << std::endl;
 - 将密码复制到以下界面中
 ![](https://user-images.githubusercontent.com/54877997/71336739-70b3da80-2583-11ea-9a12-bf9993f7323c.png)
 
-- 最后输入：ssh -T git@github.com, 如果显示 Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. 认证完成！
+- 最后输入：ssh -T git@github.com, 如果显示 “ Hi XXX! You've successfully authenticated, but GitHub does not provide shell access. ” 就表  明认证完成！
 
